@@ -30,3 +30,33 @@ p {
 .btn.btn-ghost {
   @apply shadow-none;
 }
+.square-textarea {
+  width: 100%;
+  height: 100%;
+  /* Force a 1:1 aspect ratio */
+  aspect-ratio: 0.1;
+  border-radius: 0;
+}
+.fullscreen-textarea {
+  /* Occupy full width of the container */
+  width: 100%;
+
+  /* Set a maximum width to prevent horizontal scrolling on large screens */
+  max-width: calc(100vw - 2rem); /* Adjust as needed based on your container padding */
+
+  /* Occupy full available height */
+  height: calc(100vh - 8rem); /* Adjust as needed based on header/footer heights */
+
+  /* Remove default border */
+  border: none;
+
+  /* Remove default outline */
+  outline: none;
+
+  /* Optional: Add some padding for better visual appearance */
+  padding: 1rem;
+}
+.fullscreen-textarea {
+  /* ... other styles */
+  border-radius: 0.5rem; /* Redondea las esquinas con un radio de 0.5rem */
+}
