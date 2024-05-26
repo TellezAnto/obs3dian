@@ -28,26 +28,6 @@ import { useAccount } from "wagmi";
 
 // components/HomeContent.tsx
 
-// components/HomeContent.tsx
-
-// components/HomeContent.tsx
-
-// components/HomeContent.tsx
-
-// components/HomeContent.tsx
-
-// components/HomeContent.tsx
-
-// components/HomeContent.tsx
-
-// components/HomeContent.tsx
-
-// components/HomeContent.tsx
-
-// components/HomeContent.tsx
-
-// components/HomeContent.tsx
-
 const HomeContent = ({ allPosts }: { allPosts: Post[] }) => {
   const { address: connectedAddress } = useAccount();
 
