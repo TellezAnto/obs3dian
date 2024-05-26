@@ -10,6 +10,11 @@ const Home: NextPage = () => {
   return (
     <>
       <div className="flex items-center flex-col flex-grow pt-10">
+        <div className="avatar">
+          <div className="w-24 rounded">
+            <img src="https://www.depot62.com/cdn/shop/files/obsidian.jpg?v=1683474096" />
+          </div>
+        </div>
         <div className="px-5">
           <h1 className="text-center">
             <span className="block text-2xl mb-2">Web 3 your digital brain</span>
