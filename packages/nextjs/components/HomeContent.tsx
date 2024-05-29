@@ -1,32 +1,9 @@
-// components/HomeContent.tsx
 "use client";
 
 import HomeFeed from "../components/HomeFeed";
 import { Address } from "../components/scaffold-eth/Address";
 import { Post } from "../interfaces/post";
 import { useAccount } from "wagmi";
-
-// components/HomeContent.tsx
-
-// components/HomeContent.tsx
-
-// components/HomeContent.tsx
-
-// components/HomeContent.tsx
-
-// components/HomeContent.tsx
-
-// components/HomeContent.tsx
-
-// components/HomeContent.tsx
-
-// components/HomeContent.tsx
-
-// components/HomeContent.tsx
-
-// components/HomeContent.tsx
-
-// components/HomeContent.tsx
 
 const HomeContent = ({ allPosts }: { allPosts: Post[] }) => {
   const { address: connectedAddress } = useAccount();
