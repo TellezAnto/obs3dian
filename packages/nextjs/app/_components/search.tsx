@@ -58,11 +58,21 @@ function Search({ visible, setVisible }: SearchProps) {
 
   useEffect(() => {
     setVisible(false);
-  }, [pathname, setVisible]); // Use pathname from usePathname
+  }, [pathname, setVisible]);
 
   async function handleChangeInput(e: React.ChangeEvent<HTMLInputElement>) {
-    const res = await fetch(`/api/search?q=${e.target.value}`);
-    setSearchResults(await res.json());
+    try {
+      const res = await fetch(`/api/search?q=${e.target.value}`);
+      if (!res.ok) {
+        throw new Error("Failed to fetch");
+      }
+      const data = await res.json();
+      console.log("Search Results:", data);
+      setSearchResults(data);
+    } catch (error) {
+      console.error("Failed to fetch search results:", error);
+      setSearchResults([]);
+    }
   }
 
   return (
@@ -99,17 +109,20 @@ function Search({ visible, setVisible }: SearchProps) {
         </div>
 
         {/* Search Results */}
-        {searchResults.map(res => (
-          <PostPreview
-            key={res.item.slug}
-            title={res.item.title}
-            coverImage={res.item.coverImage}
-            excerpt={res.item.excerpt}
-            slug={res.item.slug}
-            date={res.item.date}
-            author={res.item.author}
-          />
-        ))}
+        {searchResults.map(res => {
+          console.log("Rendering PostPreview with:", res);
+          return (
+            <PostPreview
+              key={res.item.slug}
+              title={res.item.title}
+              coverImage={res.item.coverImage}
+              excerpt={res.item.excerpt}
+              slug={res.item.slug}
+              date={res.item.date}
+              author={res.item.author}
+            />
+          );
+        })}
       </div>
     </div>
   );
