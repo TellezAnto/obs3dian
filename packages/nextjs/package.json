@@ -27,6 +27,7 @@
     "burner-connector": "~0.0.6",
     "classnames": "^2.5.1",
     "daisyui": "4.5.0",
+    "fast-fuzzy": "^1.12.0",
     "gray-matter": "^4.0.3",
     "next": "~14.0.4",
     "next-mdx-remote": "^5.0.0",
