@@ -4,7 +4,6 @@ import { CMS_NAME } from "../../../lib/constants";
 import markdownToHtml from "../../../lib/markdownToHtml";
 import Alert from "../../_components/alert";
 import Container from "../../_components/container";
-import Header from "../../_components/header";
 import { PostBody } from "../../_components/post-body";
 import { PostHeader } from "../../_components/post-header";
 import { Metadata } from "next";
@@ -22,7 +21,6 @@ export default async function Post({ params }: Params) {
     <main>
       <Alert preview={post.preview} />
       <Container>
-        <Header />
         <article className="mb-32">
           <PostHeader title={post.title} coverImage={post.coverImage} date={post.date} author={post.author} />
           <PostBody content={content} />
