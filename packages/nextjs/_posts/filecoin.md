@@ -3,9 +3,6 @@ title: "OBS3DIAN, YOUR DIGITAL BRAIN"
 excerpt: "Hola"
 coverImage: "/assets/blog/dynamic-routing/cover.jpg"
 date: "2024-06-01T06:35:07.322Z"
-author:
-  name:
-  picture: "/assets/blog/authors/jj.png"
 ogImage:
   url: "/assets/blog/dynamic-routing/cover.jpg"
 ---

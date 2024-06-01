@@ -21,10 +21,8 @@ const searchIndex = (await getPostsWithExcerpt()).map(p => {
   return {
     slug: p.slug,
     title: p.title,
-    coverImage: p.coverImage,
     excerpt: p.excerpt,
     date: p.date,
-    author: p.author,
   };
 });
 

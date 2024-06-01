@@ -115,11 +115,9 @@ function Search({ visible, setVisible }: SearchProps) {
             <PostPreview
               key={res.item.slug}
               title={res.item.title}
-              coverImage={res.item.coverImage}
               excerpt={res.item.excerpt}
               slug={res.item.slug}
               date={res.item.date}
-              author={res.item.author}
             />
           );
         })}
