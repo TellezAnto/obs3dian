@@ -1,7 +1,7 @@
 export default function Page() {
   return (
     /*Caja Roja*/
-    <div className="flex bg-error ">
+    <div className="flex bg-secondary ">
       {/*Caja Azul*/}
       <div className="flex flex-col mx-auto justify-center w-2/3 p-5">
         {/* Caja de Titulo*/}
