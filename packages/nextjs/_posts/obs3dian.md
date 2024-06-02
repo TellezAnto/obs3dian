@@ -1,6 +1,6 @@
 ---
 title: "OBS3DIAN, YOUR DIGITAL BRAIN"
-excerpt: "Hola"
+excerpt: "Explore OBS3DIAN, your Web3 digital brain, designed to create and secure your notes with end-to-end encryption and decentralized storage via Filecoin/IPFS."
 coverImage: "/assets/blog/dynamic-routing/cover.jpg"
 date: "2024-06-01T06:35:07.322Z"
 ogImage:

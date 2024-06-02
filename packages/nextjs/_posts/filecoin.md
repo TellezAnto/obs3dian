@@ -1,11 +1,14 @@
 ---
 title: "Filecoin Virtual Machine Enabled"
-excerpt: ""
+excerpt: "Explore how the Filecoin Virtual Machine (FVM) enables a decentralized, Web3-based alternative to Obsidian Publish, enhancing digital content management with smart contracts and secure storage."
 coverImage: "/assets/blog/dynamic-routing/cover1.jpg"
 date: "2024-06-01T06:35:07.322Z"
 ogImage:
   url: "/assets/blog/dynamic-routing/cover.jpg"
 ---
+
+[OBS3DIAN](obs3dian.md)
+
 The Filecoin Virtual Machine (FVM) can serve as a powerful backbone for creating a decentralized, Web3-based alternative to Obsidian Publish by leveraging its smart contract capabilities and decentralized storage features. With FVM, you can deploy smart contracts that manage the publishing, access control, and monetization aspects of digital content securely and transparently.
 
 1. **Decentralized Storage**: Utilize Filecoin's decentralized storage to store the actual markdown files, images, and other assets associated with Obsidian Publish documents, ensuring high availability and censorship resistance.

@@ -20,7 +20,7 @@ export function PostPreview({ title, date, excerpt, slug }: Props) {
         <div className="text-lg mb-4">
           <DateFormatter dateString={date} />
         </div>
-        <div className="text-lg text-gray-600 mb-4 text-ellipsis">{excerpt.slice(0, 500)}</div>
+        <div className="text-lg text-primary-content mb-4 text-ellipsis">{excerpt.slice(0, 500)}</div>
       </div>
       <Link as={`/posts/${slug}`} href="/[...slug]" className="block shrink-0 ml-6">
         <span className="sr-only">Leer más</span>
