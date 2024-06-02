@@ -32,7 +32,7 @@ contract ChatGpt {
     constructor(address initialOracleAddress, string memory knowledgeBaseCID) {
         owner = msg.sender;
         oracleAddress = initialOracleAddress;
-        knowledgeBase = bafkreigkfepwgdb465ntxpxrl2wl2mmnz7btztu7iacysg6hhc5d7banwu;
+        knowledgeBase = initialKnowledgeBase;
     }
 
     modifier onlyOwner() {
