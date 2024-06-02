@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { LitAbility, LitAccessControlConditionResource } from "@lit-protocol/auth-helpers";
 import { LitNetwork } from "@lit-protocol/constants";
 import * as LitJsSdk from "@lit-protocol/lit-node-client";
 import { ethers } from "ethers";
+import { SiweMessage } from "siwe";
 
 const chain = "ethereum";
 
@@ -27,8 +27,39 @@ const useLit = () => {
     };
   }, [litNodeClient]);
 
+  const getAuthSig = async () => {
+    if (!litNodeClient) throw new Error("LitNodeClient is not connected");
+
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    await provider.send("eth_requestAccounts", []);
+    const signer = provider.getSigner();
+    const walletAddress = await signer.getAddress();
+
+    const siweMessage = new SiweMessage({
+      domain: window.location.host,
+      address: walletAddress,
+      statement: "Sign in with Ethereum to the app.",
+      uri: window.location.origin,
+      version: "1",
+      chainId: 1,
+      nonce: await litNodeClient.getLatestBlockhash(),
+      issuedAt: new Date().toISOString(),
+      expirationTime: new Date(Date.now() + 1000 * 60 * 60 * 24).toISOString(),
+    });
+
+    const messageToSign = siweMessage.prepareMessage();
+    const signature = await signer.signMessage(messageToSign);
+
+    return {
+      sig: signature,
+      derivedVia: "web3.eth.personal.sign",
+      signedMessage: messageToSign,
+      address: walletAddress,
+    };
+  };
+
   const encryptMessage = async (message: string) => {
-    if (!litNodeClient) return;
+    if (!litNodeClient) throw new Error("LitNodeClient is not connected");
 
     const accessControlConditions: Array<any> = [
       {
@@ -44,11 +75,14 @@ const useLit = () => {
       },
     ];
 
+    const authSig = await getAuthSig();
+
     const { ciphertext, dataToEncryptHash } = await LitJsSdk.encryptString(
       {
         accessControlConditions,
         dataToEncrypt: message,
         chain,
+        authSig,
       },
       litNodeClient,
     );
@@ -60,46 +94,9 @@ const useLit = () => {
   };
 
   const decryptMessage = async (ciphertext: string, dataToEncryptHash: string) => {
-    if (!litNodeClient) return;
+    if (!litNodeClient) throw new Error("LitNodeClient is not connected");
 
-    const sessionSigs = await litNodeClient.getSessionSigs({
-      chain,
-      resourceAbilityRequests: [
-        {
-          resource: new LitAccessControlConditionResource("*"),
-          ability: LitAbility.AccessControlConditionDecryption,
-        },
-      ],
-      authNeededCallback: async () => {
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
-        await provider.send("eth_requestAccounts", []);
-        const signer = provider.getSigner();
-        const walletAddress = await signer.getAddress();
-
-        const latestBlockhash = await litNodeClient.getLatestBlockhash();
-
-        const toSign = {
-          domain: window.location.host,
-          address: walletAddress,
-          statement: "Sign in with Ethereum to the app.",
-          uri: window.location.origin,
-          version: "1",
-          chainId: 1,
-          nonce: latestBlockhash,
-          issuedAt: new Date().toISOString(),
-          expirationTime: new Date(Date.now() + 1000 * 60 * 60 * 24).toISOString(),
-        };
-
-        const authSig = await signer.signMessage(JSON.stringify(toSign));
-
-        return {
-          sig: authSig,
-          derivedVia: "web3.eth.personal.sign",
-          signedMessage: JSON.stringify(toSign),
-          address: walletAddress,
-        };
-      },
-    });
+    const authSig = await getAuthSig();
 
     const accessControlConditions: Array<any> = [
       {
@@ -121,7 +118,7 @@ const useLit = () => {
         chain,
         ciphertext,
         dataToEncryptHash,
-        sessionSigs,
+        authSig,
       },
       litNodeClient,
     );
