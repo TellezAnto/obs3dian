@@ -1,23 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAllPosts } from "../../../lib/api";
-import markdownToHtml from "../../../lib/markdownToHtml";
 import { Searcher } from "fast-fuzzy";
 
-async function getPostsWithExcerpt() {
-  const allPosts = getAllPosts();
-  const postsWithExcerpt = await Promise.all(
-    allPosts.map(async post => {
-      const excerpt = await markdownToHtml(post.content);
-      return {
-        ...post,
-        excerpt,
-      };
-    }),
-  );
-  return postsWithExcerpt;
-}
-
-const searchIndex = (await getPostsWithExcerpt()).map(p => {
+const searchIndex = (await getAllPosts()).map(p => {
   return {
     slug: p.slug,
     title: p.title,

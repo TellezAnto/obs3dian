@@ -77,7 +77,7 @@ function Search({ visible, setVisible }: SearchProps) {
 
   return (
     <div
-      className={`absolute top-full h-screen pb-16 z-20 left-0 w-full overflow-y-auto overscroll-none overflow-x-hidden bg-white/95 ${
+      className={`absolute top-0 h-screen pb-16 z-20 left-0 w-full overflow-y-auto overscroll-none overflow-x-hidden bg-white/95 ${
         visible ? "block" : "hidden"
       }`}
     >

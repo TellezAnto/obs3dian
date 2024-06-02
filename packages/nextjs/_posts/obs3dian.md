@@ -9,6 +9,7 @@ ogImage:
 
 ### OBS3DIAN
 
+[Filecoin](filecoin.md)
 Your Web3 digital Brain
 
 ## What we are
