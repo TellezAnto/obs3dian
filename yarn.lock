@@ -2974,6 +2974,7 @@ __metadata:
     react-hot-toast: ~2.4.0
     remark: ^15.0.1
     remark-html: ^16.0.1
+    siwe: ^2.3.2
     tailwindcss: ~3.4.3
     type-fest: ~4.6.0
     typescript: ~5.1.6
@@ -15150,7 +15151,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"siwe@npm:^2.0.5, siwe@npm:^2.1.4":
+"siwe@npm:^2.0.5, siwe@npm:^2.1.4, siwe@npm:^2.3.2":
   version: 2.3.2
   resolution: "siwe@npm:2.3.2"
   dependencies:
