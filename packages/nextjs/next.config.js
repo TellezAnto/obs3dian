@@ -15,6 +15,9 @@ const nextConfig = {
     config.externals.push("pino-pretty", "lokijs", "encoding");
     return config;
   },
+  env: {
+    NFT_STORAGE_API_KEY: process.env.NFT_STORAGE_API_KEY || "",
+  },
 };
 
 module.exports = async () => {

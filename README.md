@@ -8,7 +8,7 @@
 ##  Enable your Digital Brain (or any knowledge base) with Web 3 capabilities.
 
 - Platform Agnostic
-- Data Sovereign 
+- Data Sovereign
 - Resilient Content
 - Natural Language Searchable
 - Transparent Pricing
@@ -26,7 +26,7 @@ How can you deploy your knowledge base with Open Source principles?
 The dApp takes advantage of blockchain technology to store encrypted data in an decentralized manner, ensuring the integrity and confidentiality of the information. Users will be able to access their notes and documents from any device with an internet connection.
 
 ## MVP
-Use crypto signatures to encrypt and decrypt files. Via Filecoin or IPFS Publish encrypted files to decentralized storage, 
+Use crypto signatures to encrypt and decrypt files. Via Filecoin or IPFS Publish encrypted files to decentralized storage,
 
 ### *Suggested Workflow:*
 
@@ -36,9 +36,15 @@ Use crypto signatures to encrypt and decrypt files. Via Filecoin or IPFS Publish
 
 ## Next Steps / Work In Progress
 
-# Publish / Deploy 
-Use open source tools to build JS Web App and access from browsers 
+# Publish / Deploy
+Use open source tools to build JS Web App and access from browsers
 ## Browser Extension
 This bit can handle decryption and display of MD from browser
 
 
+# Galadriel Onchain Agent
+Embeddings from Knowledge Base to stored on IPFS and queried for retrieval by Galadriel Oracle
+ipfs://bafkreigkfepwgdb465ntxpxrl2wl2mmnz7btztu7iacysg6hhc5d7banwu/
+
+# Filecoin Storage Deals
+https://filfox.info/en/deal/74071166
